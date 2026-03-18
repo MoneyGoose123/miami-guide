@@ -1,0 +1,560 @@
+<!DOCTYPE html>
+<html lang="ja">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>🌴 マイアミ旅のしおり</title>
+  <style>
+    * { box-sizing: border-box; margin: 0; padding: 0; }
+
+    body {
+      font-family: -apple-system, BlinkMacSystemFont, 'Segoe UI', sans-serif;
+      background: linear-gradient(135deg, #006994 0%, #00a8e8 50%, #00c9a7 100%);
+      min-height: 100vh;
+      padding: 16px;
+    }
+
+    .container {
+      max-width: 480px;
+      margin: 0 auto;
+    }
+
+    /* Header */
+    .header {
+      text-align: center;
+      color: white;
+      padding: 32px 16px 24px;
+    }
+    .header .emoji { font-size: 56px; display: block; margin-bottom: 8px; }
+    .header h1 { font-size: 26px; font-weight: 800; letter-spacing: 2px; }
+    .header .subtitle { font-size: 14px; opacity: 0.9; margin-top: 6px; }
+    .header .date-badge {
+      display: inline-block;
+      background: rgba(255,255,255,0.25);
+      border: 1px solid rgba(255,255,255,0.5);
+      border-radius: 20px;
+      padding: 6px 16px;
+      font-size: 13px;
+      margin-top: 12px;
+      color: white;
+    }
+
+    /* Card */
+    .card {
+      background: white;
+      border-radius: 20px;
+      padding: 20px;
+      margin-bottom: 16px;
+      box-shadow: 0 4px 20px rgba(0,0,0,0.12);
+    }
+
+    .card-title {
+      font-size: 17px;
+      font-weight: 700;
+      margin-bottom: 14px;
+      display: flex;
+      align-items: center;
+      gap: 8px;
+    }
+
+    /* Timeline */
+    .timeline { position: relative; }
+    .timeline-item {
+      display: flex;
+      gap: 14px;
+      margin-bottom: 18px;
+      position: relative;
+    }
+    .timeline-item:last-child { margin-bottom: 0; }
+    .timeline-left {
+      display: flex;
+      flex-direction: column;
+      align-items: center;
+      min-width: 52px;
+    }
+    .time-badge {
+      background: linear-gradient(135deg, #006994, #00a8e8);
+      color: white;
+      font-size: 11px;
+      font-weight: 700;
+      padding: 4px 8px;
+      border-radius: 10px;
+      white-space: nowrap;
+    }
+    .timeline-line {
+      width: 2px;
+      flex: 1;
+      background: #e0f0ff;
+      margin: 4px auto 0;
+      min-height: 20px;
+    }
+    .timeline-content h3 {
+      font-size: 14px;
+      font-weight: 700;
+      color: #1a1a2e;
+      margin-bottom: 3px;
+    }
+    .timeline-content p {
+      font-size: 12px;
+      color: #666;
+      line-height: 1.5;
+    }
+    .highlight-tag {
+      display: inline-block;
+      background: #fff3cd;
+      color: #856404;
+      font-size: 11px;
+      padding: 2px 8px;
+      border-radius: 8px;
+      margin-top: 4px;
+      font-weight: 600;
+    }
+    .warning-tag {
+      display: inline-block;
+      background: #fde8e8;
+      color: #c62828;
+      font-size: 11px;
+      padding: 2px 8px;
+      border-radius: 8px;
+      margin-top: 4px;
+      font-weight: 600;
+    }
+    .ok-tag {
+      display: inline-block;
+      background: #e8f5e9;
+      color: #2e7d32;
+      font-size: 11px;
+      padding: 2px 8px;
+      border-radius: 8px;
+      margin-top: 4px;
+      font-weight: 600;
+    }
+
+    /* Restaurant cards */
+    .restaurant {
+      border: 1px solid #e8f0fe;
+      border-radius: 14px;
+      padding: 14px;
+      margin-bottom: 12px;
+      background: #fafcff;
+    }
+    .restaurant:last-child { margin-bottom: 0; }
+    .restaurant-header {
+      display: flex;
+      justify-content: space-between;
+      align-items: flex-start;
+      margin-bottom: 6px;
+    }
+    .restaurant-name {
+      font-size: 15px;
+      font-weight: 700;
+      color: #1a1a2e;
+    }
+    .price-tag {
+      font-size: 12px;
+      background: #e8f5e9;
+      color: #2e7d32;
+      padding: 3px 9px;
+      border-radius: 8px;
+      font-weight: 600;
+      white-space: nowrap;
+    }
+    .price-tag.mid { background: #fff3cd; color: #856404; }
+    .price-tag.high { background: #fde8e8; color: #c62828; }
+    .restaurant-type {
+      font-size: 11px;
+      color: #999;
+      margin-bottom: 6px;
+    }
+    .restaurant-desc {
+      font-size: 12px;
+      color: #555;
+      line-height: 1.5;
+      margin-bottom: 8px;
+    }
+    .must-eat {
+      background: linear-gradient(135deg, #fff8e1, #fff3cd);
+      border-radius: 8px;
+      padding: 8px 10px;
+      font-size: 12px;
+      color: #7c5c00;
+    }
+    .must-eat strong { color: #5c4000; }
+
+    /* Must-eat list */
+    .food-grid {
+      display: grid;
+      grid-template-columns: 1fr 1fr;
+      gap: 10px;
+    }
+    .food-item {
+      background: linear-gradient(135deg, #f0f9ff, #e0f4ff);
+      border-radius: 14px;
+      padding: 14px 12px;
+      text-align: center;
+    }
+    .food-item .food-emoji { font-size: 28px; display: block; margin-bottom: 6px; }
+    .food-item .food-name { font-size: 12px; font-weight: 700; color: #1a1a2e; margin-bottom: 3px; }
+    .food-item .food-note { font-size: 10px; color: #666; }
+
+    /* Notes */
+    .note-item {
+      display: flex;
+      gap: 10px;
+      margin-bottom: 12px;
+      align-items: flex-start;
+    }
+    .note-item:last-child { margin-bottom: 0; }
+    .note-icon { font-size: 20px; flex-shrink: 0; margin-top: 1px; }
+    .note-text h4 { font-size: 13px; font-weight: 700; color: #1a1a2e; margin-bottom: 2px; }
+    .note-text p { font-size: 12px; color: #666; line-height: 1.5; }
+
+    /* Checklist */
+    .check-item {
+      display: flex;
+      align-items: center;
+      gap: 10px;
+      padding: 10px 0;
+      border-bottom: 1px solid #f0f0f0;
+      font-size: 13px;
+      color: #333;
+    }
+    .check-item:last-child { border-bottom: none; }
+    .check-box {
+      width: 22px;
+      height: 22px;
+      border: 2px solid #ddd;
+      border-radius: 6px;
+      flex-shrink: 0;
+      display: flex;
+      align-items: center;
+      justify-content: center;
+      cursor: pointer;
+      transition: all 0.2s;
+    }
+    .check-box.checked {
+      background: #00a8e8;
+      border-color: #00a8e8;
+    }
+    .check-box.checked::after { content: "✓"; color: white; font-size: 13px; font-weight: 700; }
+
+    /* Footer */
+    .footer {
+      text-align: center;
+      color: rgba(255,255,255,0.8);
+      font-size: 12px;
+      padding: 16px;
+    }
+
+    /* Boarding alert */
+    .boarding-alert {
+      background: linear-gradient(135deg, #c62828, #e53935);
+      color: white;
+      border-radius: 14px;
+      padding: 16px;
+      text-align: center;
+      margin-bottom: 16px;
+    }
+    .boarding-alert .big-time { font-size: 42px; font-weight: 900; letter-spacing: 2px; }
+    .boarding-alert p { font-size: 13px; opacity: 0.9; margin-top: 4px; }
+  </style>
+</head>
+<body>
+  <div class="container">
+
+    <!-- Header -->
+    <div class="header">
+      <span class="emoji">🌴</span>
+      <h1>マイアミ 旅のしおり</h1>
+      <p class="subtitle">Miami, Florida — Cruise Departure Day</p>
+      <div class="date-badge">🚢 乗船 15:45 出発</div>
+    </div>
+
+    <!-- Boarding Alert -->
+    <div class="boarding-alert">
+      <div>⚓ 乗船時刻</div>
+      <div class="big-time">15:45</div>
+      <p>遅くとも 14:30 までには乗り場に到着すること</p>
+    </div>
+
+    <!-- Timeline -->
+    <div class="card">
+      <div class="card-title">🗓 本日のスケジュール</div>
+      <div class="timeline">
+        <div class="timeline-item">
+          <div class="timeline-left">
+            <div class="time-badge">AM</div>
+            <div class="timeline-line"></div>
+          </div>
+          <div class="timeline-content">
+            <h3>午前中は観光＆朝食</h3>
+            <p>サウスビーチ散策、アールデコ建築を楽しむ。Ocean Drive 沿いでカフェ朝食。</p>
+            <span class="ok-tag">✓ 余裕あり</span>
+          </div>
+        </div>
+        <div class="timeline-item">
+          <div class="timeline-left">
+            <div class="time-badge">12:00</div>
+            <div class="timeline-line"></div>
+          </div>
+          <div class="timeline-content">
+            <h3>ランチ（最優先）</h3>
+            <p>マイアミ名物を食べ納め！下記おすすめレストランへ。</p>
+            <span class="highlight-tag">⭐ ここが勝負</span>
+          </div>
+        </div>
+        <div class="timeline-item">
+          <div class="timeline-left">
+            <div class="time-badge">13:30</div>
+            <div class="timeline-line"></div>
+          </div>
+          <div class="timeline-content">
+            <h3>Port Miami へ移動</h3>
+            <p>Uber/タクシーで港へ。混雑・渋滞に注意。荷物多い場合は早めに。</p>
+            <span class="warning-tag">⚠ 余裕を持って</span>
+          </div>
+        </div>
+        <div class="timeline-item">
+          <div class="timeline-left">
+            <div class="time-badge">14:30</div>
+            <div class="timeline-line"></div>
+          </div>
+          <div class="timeline-content">
+            <h3>ポート到着・チェックイン手続き</h3>
+            <p>ターミナルで書類確認、荷物預け。セキュリティ通過に時間がかかることも。</p>
+            <span class="warning-tag">⚠ 最低でもこの時刻までに</span>
+          </div>
+        </div>
+        <div class="timeline-item">
+          <div class="timeline-left">
+            <div class="time-badge">15:45</div>
+            <div class="timeline-line"></div>
+          </div>
+          <div class="timeline-content">
+            <h3>🚢 乗船！出発</h3>
+            <p>いよいよクルーズへ。デッキから出港の景色を楽しもう。</p>
+            <span class="ok-tag">🎉 出発</span>
+          </div>
+        </div>
+      </div>
+    </div>
+
+    <!-- Restaurants -->
+    <div class="card">
+      <div class="card-title">🍽 おすすめレストラン</div>
+
+      <div class="restaurant">
+        <div class="restaurant-header">
+          <div class="restaurant-name">Joe's Stone Crab</div>
+          <div class="price-tag high">$$$</div>
+        </div>
+        <div class="restaurant-type">🦀 シーフード｜サウスビーチ 1913 Washington Ave</div>
+        <div class="restaurant-desc">マイアミ最iconic。1913年創業の超老舗。フロリダ産ストーンクラブは絶品。ランチ営業あり（要確認）。</div>
+        <div class="must-eat">🌟 <strong>必食：</strong>ストーンクラブの爪 / キーライムパイ</div>
+      </div>
+
+      <div class="restaurant">
+        <div class="restaurant-header">
+          <div class="restaurant-name">Versailles Restaurant</div>
+          <div class="price-tag">$</div>
+        </div>
+        <div class="restaurant-type">🇨🇺 キューバ料理｜Little Havana 3555 SW 8th St</div>
+        <div class="restaurant-desc">マイアミ名物のキューバ料理。地元民が毎日通う老舗。安くて美味しい。クルーズ前の腹ごしらえに最適。</div>
+        <div class="must-eat">🌟 <strong>必食：</strong>キューバンサンドイッチ / カフェ・クバーノ（エスプレッソ）/ ロパ・ビエハ</div>
+      </div>
+
+      <div class="restaurant">
+        <div class="restaurant-header">
+          <div class="restaurant-name">La Mar by Gastón Acurio</div>
+          <div class="price-tag mid">$$</div>
+        </div>
+        <div class="restaurant-type">🐟 ペルー料理｜Brickell 500 Brickell Key Dr</div>
+        <div class="restaurant-desc">世界的シェフ監修のペルー料理。セビーチェが絶品。ウォーターフロントの眺めも最高。</div>
+        <div class="must-eat">🌟 <strong>必食：</strong>クラシック・セビーチェ / ティラジートス</div>
+      </div>
+
+      <div class="restaurant">
+        <div class="restaurant-header">
+          <div class="restaurant-name">KYU Miami</div>
+          <div class="price-tag mid">$$</div>
+        </div>
+        <div class="restaurant-type">🔥 アジアン BBQ｜Wynwood 251 NW 25th St</div>
+        <div class="restaurant-desc">日本の炭火焼きにインスパイアされたアジアンBBQ。Wynwood アートエリアにある人気店。</div>
+        <div class="must-eat">🌟 <strong>必食：</strong>チャーシューバオ / 赤味噌黒鱈 / 日本かぼちゃ</div>
+      </div>
+
+    </div>
+
+    <!-- Must-eat foods -->
+    <div class="card">
+      <div class="card-title">🌮 マイアミで食べておくべきもの</div>
+      <div class="food-grid">
+        <div class="food-item">
+          <span class="food-emoji">🦀</span>
+          <div class="food-name">ストーンクラブ</div>
+          <div class="food-note">フロリダ名物。クルーズ船では食べられない貴重品</div>
+        </div>
+        <div class="food-item">
+          <span class="food-emoji">🥪</span>
+          <div class="food-name">キューバンサンド</div>
+          <div class="food-note">マイアミのソウルフード。安くて絶品</div>
+        </div>
+        <div class="food-item">
+          <span class="food-emoji">🍋</span>
+          <div class="food-name">キーライムパイ</div>
+          <div class="food-note">フロリダ州の公式デザート。甘酸っぱい</div>
+        </div>
+        <div class="food-item">
+          <span class="food-emoji">🐟</span>
+          <div class="food-name">セビーチェ</div>
+          <div class="food-note">新鮮な魚介をレモンマリネ。暑い日に最高</div>
+        </div>
+        <div class="food-item">
+          <span class="food-emoji">☕</span>
+          <div class="food-name">カフェ・クバーノ</div>
+          <div class="food-note">激甘キューバエスプレッソ。$1〜2で飲める</div>
+        </div>
+        <div class="food-item">
+          <span class="food-emoji">🥑</span>
+          <div class="food-name">エンパナーダ</div>
+          <div class="food-note">揚げ餃子風。Little Havanaで本場の味</div>
+        </div>
+      </div>
+    </div>
+
+    <!-- Important Notes -->
+    <div class="card">
+      <div class="card-title">⚠️ 乗船前の注意事項</div>
+
+      <div class="note-item">
+        <div class="note-icon">🛂</div>
+        <div class="note-text">
+          <h4>パスポートは必ず手持ち</h4>
+          <p>チェックイン時に必要。預け荷物の中に入れないこと。コピーも別途持つと安心。</p>
+        </div>
+      </div>
+
+      <div class="note-item">
+        <div class="note-icon">🧳</div>
+        <div class="note-text">
+          <h4>大きな荷物は早めに預ける</h4>
+          <p>ターミナルでポーターに預けられる。部屋に届くのは出港後数時間後のことも。必需品は手荷物に。</p>
+        </div>
+      </div>
+
+      <div class="note-item">
+        <div class="note-icon">🍺</div>
+        <div class="note-text">
+          <h4>飲酒は控えめに</h4>
+          <p>乗船手続きで泥酔状態だと乗船拒否になることも。ランチビールは1〜2杯まで。</p>
+        </div>
+      </div>
+
+      <div class="note-item">
+        <div class="note-icon">💊</div>
+        <div class="note-text">
+          <h4>船酔い対策を準備</h4>
+          <p>酔い止め薬（ドラマミンなど）は乗船前に服用が効果的。パッチ型も◎。</p>
+        </div>
+      </div>
+
+      <div class="note-item">
+        <div class="note-icon">📱</div>
+        <div class="note-text">
+          <h4>国際ローミング・Wi-Fi確認</h4>
+          <p>船内Wi-Fiは高額。出港前にメッセージ・地図をダウンロードしておく。</p>
+        </div>
+      </div>
+
+      <div class="note-item">
+        <div class="note-icon">💵</div>
+        <div class="note-text">
+          <h4>現金・クレジットカード</h4>
+          <p>船内はほぼカードのみ（クルーズカード）。上陸時用に現地通貨を少し用意。チップ文化に注意（外食は18〜20%）。</p>
+        </div>
+      </div>
+
+      <div class="note-item">
+        <div class="note-icon">☀️</div>
+        <div class="note-text">
+          <h4>日焼け対策</h4>
+          <p>マイアミは日差しが強烈。SPF50+の日焼け止め、サングラス、帽子は必須。</p>
+        </div>
+      </div>
+
+      <div class="note-item">
+        <div class="note-icon">🚗</div>
+        <div class="note-text">
+          <h4>Port Miami へのアクセス</h4>
+          <p>Uber/Lyftが便利。Downtownから約10〜15分。料金は$15〜25程度。タクシーより安い。</p>
+        </div>
+      </div>
+
+    </div>
+
+    <!-- Checklist -->
+    <div class="card">
+      <div class="card-title">✅ 乗船前チェックリスト</div>
+      <div id="checklist">
+        <div class="check-item" onclick="toggleCheck(this)">
+          <div class="check-box"></div>
+          <span>パスポート（手荷物に入れた）</span>
+        </div>
+        <div class="check-item" onclick="toggleCheck(this)">
+          <div class="check-box"></div>
+          <span>乗船書類・確認書（印刷 or スクショ）</span>
+        </div>
+        <div class="check-item" onclick="toggleCheck(this)">
+          <div class="check-box"></div>
+          <span>クレジットカード</span>
+        </div>
+        <div class="check-item" onclick="toggleCheck(this)">
+          <div class="check-box"></div>
+          <span>酔い止め薬を服用 or 持参</span>
+        </div>
+        <div class="check-item" onclick="toggleCheck(this)">
+          <div class="check-box"></div>
+          <span>スマホ充電 100%</span>
+        </div>
+        <div class="check-item" onclick="toggleCheck(this)">
+          <div class="check-box"></div>
+          <span>オフライン地図ダウンロード済み</span>
+        </div>
+        <div class="check-item" onclick="toggleCheck(this)">
+          <div class="check-box"></div>
+          <span>日焼け止め・サングラス</span>
+        </div>
+        <div class="check-item" onclick="toggleCheck(this)">
+          <div class="check-box"></div>
+          <span>マイアミ名物を食べた 🦀</span>
+        </div>
+        <div class="check-item" onclick="toggleCheck(this)">
+          <div class="check-box"></div>
+          <span>14:30 ポート到着 ✓</span>
+        </div>
+      </div>
+    </div>
+
+    <div class="footer">
+      🚢 良い旅を！Have a wonderful cruise! 🌊<br>
+      <small style="opacity:0.7; margin-top:4px; display:block;">Made with ❤️ by Claude</small>
+    </div>
+
+  </div>
+
+  <script>
+    function toggleCheck(item) {
+      const box = item.querySelector('.check-box');
+      box.classList.toggle('checked');
+      const span = item.querySelector('span');
+      if (box.classList.contains('checked')) {
+        span.style.textDecoration = 'line-through';
+        span.style.color = '#aaa';
+      } else {
+        span.style.textDecoration = 'none';
+        span.style.color = '#333';
+      }
+    }
+  </script>
+</body>
+</html>
