@@ -3,627 +3,657 @@
 <head>
   <meta charset="UTF-8">
   <meta name="viewport" content="width=device-width, initial-scale=1.0">
-  <title>マイアミ → フロリダキーズ ドライブしおり</title>
+  <title>フロリダキーズ ドライブしおり｜バヒア・ホンダ完全版</title>
   <style>
-    * { margin: 0; padding: 0; box-sizing: border-box; }
-
-    body {
-      font-family: 'Helvetica Neue', Arial, 'Hiragino Kaku Gothic ProN', sans-serif;
-      background: linear-gradient(135deg, #0a192f 0%, #0d3b6e 50%, #1a6b8a 100%);
-      min-height: 100vh;
-      color: #f0f4f8;
+    *{margin:0;padding:0;box-sizing:border-box;}
+    :root{
+      --ocean:#0077b6;--sky:#00b4d8;--foam:#90e0ef;--sand:#ffd166;
+      --coral:#f77f00;--green:#06d6a0;--red:#ef476f;--bg:#04111f;
+      --card:#0a1f33;--border:rgba(144,224,239,.15);--text:#e0f4ff;--muted:#7ec8d8;
     }
+    html{scroll-behavior:smooth;}
+    body{background:var(--bg);color:var(--text);font-family:'Helvetica Neue',Arial,'Hiragino Kaku Gothic ProN',sans-serif;line-height:1.6;}
 
-    .hero {
-      text-align: center;
-      padding: 60px 20px 40px;
-      position: relative;
-      overflow: hidden;
+    /* ─── HERO ─── */
+    .hero{
+      background:linear-gradient(170deg,#020e1b 0%,#04253d 40%,#063d5e 70%,#0a5a80 100%);
+      padding:60px 20px 50px;text-align:center;position:relative;overflow:hidden;
     }
-
-    .hero::before {
-      content: '';
-      position: absolute;
-      inset: 0;
-      background: url("data:image/svg+xml,%3Csvg xmlns='http://www.w3.org/2000/svg' width='100%25' height='100%25'%3E%3Cdefs%3E%3ClinearGradient id='wave' x1='0' y1='0' x2='0' y2='1'%3E%3Cstop offset='0' stop-color='%2300b4d8' stop-opacity='0.1'/%3E%3Cstop offset='1' stop-color='%2300b4d8' stop-opacity='0'/%3E%3C/linearGradient%3E%3C/defs%3E%3C/svg%3E");
+    .hero::after{
+      content:'';position:absolute;bottom:0;left:0;right:0;height:80px;
+      background:linear-gradient(to top,var(--bg),transparent);
     }
-
-    .badge {
-      display: inline-block;
-      background: rgba(0,180,216,0.25);
-      border: 1px solid rgba(0,180,216,0.5);
-      color: #48cae4;
-      padding: 6px 18px;
-      border-radius: 20px;
-      font-size: 13px;
-      letter-spacing: 2px;
-      margin-bottom: 20px;
+    .wave-bg{
+      position:absolute;inset:0;opacity:.06;
+      background:repeating-linear-gradient(0deg,transparent,transparent 40px,rgba(0,180,216,.5) 40px,rgba(0,180,216,.5) 42px);
     }
+    .badge{display:inline-flex;align-items:center;gap:6px;background:rgba(0,180,216,.2);border:1px solid rgba(0,180,216,.4);color:var(--sky);padding:6px 16px;border-radius:20px;font-size:12px;letter-spacing:2px;margin-bottom:20px;}
+    .hero h1{font-size:clamp(26px,5.5vw,50px);font-weight:900;line-height:1.15;margin-bottom:14px;background:linear-gradient(90deg,#caf0f8,#fff,#90e0ef);-webkit-background-clip:text;-webkit-text-fill-color:transparent;background-clip:text;}
+    .hero-sub{color:var(--foam);font-size:15px;opacity:.9;margin-bottom:30px;}
+    .chips{display:flex;flex-wrap:wrap;justify-content:center;gap:10px;}
+    .chip{background:rgba(255,255,255,.07);border:1px solid rgba(255,255,255,.12);border-radius:24px;padding:8px 18px;font-size:13px;display:flex;align-items:center;gap:7px;}
 
-    .hero h1 {
-      font-size: clamp(28px, 6vw, 52px);
-      font-weight: 800;
-      line-height: 1.2;
-      margin-bottom: 12px;
-      background: linear-gradient(90deg, #90e0ef, #ffffff, #caf0f8);
-      -webkit-background-clip: text;
-      -webkit-text-fill-color: transparent;
-      background-clip: text;
-    }
+    /* ─── NAV ─── */
+    nav{background:rgba(4,17,31,.92);backdrop-filter:blur(12px);position:sticky;top:0;z-index:100;border-bottom:1px solid var(--border);}
+    .nav-inner{max-width:900px;margin:0 auto;display:flex;overflow-x:auto;gap:2px;padding:0 16px;}
+    nav a{display:block;padding:14px 16px;font-size:13px;color:var(--muted);text-decoration:none;white-space:nowrap;border-bottom:2px solid transparent;transition:.2s;}
+    nav a:hover{color:#fff;border-bottom-color:var(--sky);}
 
-    .hero p {
-      font-size: 16px;
-      color: #90e0ef;
-      opacity: 0.9;
-    }
+    /* ─── LAYOUT ─── */
+    .container{max-width:900px;margin:0 auto;padding:0 20px 100px;}
+    section{padding-top:60px;}
 
-    .info-bar {
-      display: flex;
-      justify-content: center;
-      flex-wrap: wrap;
-      gap: 12px;
-      padding: 20px;
-      margin: 0 auto 40px;
-      max-width: 800px;
-    }
+    /* ─── SECTION TITLE ─── */
+    .sec-title{display:flex;align-items:center;gap:14px;margin-bottom:30px;}
+    .sec-icon{width:46px;height:46px;border-radius:13px;display:flex;align-items:center;justify-content:center;font-size:22px;flex-shrink:0;}
+    .sec-title h2{font-size:22px;font-weight:800;color:#fff;}
+    .sec-title p{font-size:13px;color:var(--muted);margin-top:2px;}
 
-    .info-chip {
-      background: rgba(255,255,255,0.08);
-      border: 1px solid rgba(255,255,255,0.15);
-      border-radius: 30px;
-      padding: 10px 20px;
-      font-size: 14px;
-      display: flex;
-      align-items: center;
-      gap: 8px;
-    }
+    /* ─── OVERVIEW STATS ─── */
+    .stats-row{display:grid;grid-template-columns:repeat(auto-fill,minmax(140px,1fr));gap:14px;margin-bottom:50px;}
+    .stat-box{background:var(--card);border:1px solid var(--border);border-radius:14px;padding:18px;text-align:center;}
+    .stat-box .num{font-size:26px;font-weight:900;color:var(--sky);display:block;line-height:1;}
+    .stat-box .unit{font-size:11px;color:var(--foam);margin-top:2px;}
+    .stat-box .lbl{font-size:12px;color:var(--muted);margin-top:6px;}
 
-    .info-chip span.icon { font-size: 18px; }
+    /* ─── TIMELINE ─── */
+    .tl{position:relative;padding-left:16px;}
+    .tl::before{content:'';position:absolute;left:22px;top:0;bottom:0;width:2px;background:linear-gradient(to bottom,var(--sky),var(--foam),rgba(144,224,239,.2));}
+    .tl-item{position:relative;padding:0 0 36px 56px;}
+    .tl-dot{position:absolute;left:14px;top:6px;width:18px;height:18px;border-radius:50%;border:3px solid;background:var(--bg);z-index:1;}
+    .dot-depart{border-color:var(--sky);box-shadow:0 0 0 5px rgba(0,180,216,.15);}
+    .dot-stop{border-color:var(--foam);box-shadow:0 0 0 4px rgba(144,224,239,.12);}
+    .dot-lunch{border-color:var(--sand);box-shadow:0 0 0 4px rgba(255,209,102,.2);}
+    .dot-bridge{border-color:#a78bfa;box-shadow:0 0 0 4px rgba(167,139,250,.2);}
+    .dot-turn{border-color:var(--coral);box-shadow:0 0 0 5px rgba(247,127,0,.2);}
+    .dot-dinner{border-color:var(--green);box-shadow:0 0 0 4px rgba(6,214,160,.15);}
+    .dot-end{border-color:#fff;box-shadow:0 0 0 4px rgba(255,255,255,.15);}
 
-    .container {
-      max-width: 860px;
-      margin: 0 auto;
-      padding: 0 20px 80px;
-    }
+    .tl-time{font-size:11px;font-weight:800;letter-spacing:1.5px;color:var(--sky);margin-bottom:3px;}
+    .tl-item h3{font-size:17px;font-weight:800;color:#fff;margin-bottom:6px;}
+    .tl-card{background:var(--card);border:1px solid var(--border);border-radius:14px;padding:18px;font-size:13.5px;color:var(--foam);line-height:1.75;}
+    .tl-card p+p{margin-top:8px;}
+    .tl-card .tag{display:inline-block;background:rgba(0,180,216,.15);border:1px solid rgba(0,180,216,.3);color:var(--sky);font-size:11px;padding:2px 10px;border-radius:10px;margin:2px 3px 2px 0;}
+    .tl-card .warn-tag{background:rgba(239,71,111,.12);border-color:rgba(239,71,111,.3);color:#ff8fa3;}
+    .tl-card .good-tag{background:rgba(6,214,160,.12);border-color:rgba(6,214,160,.3);color:var(--green);}
+    .tl-card .gold-tag{background:rgba(255,209,102,.12);border-color:rgba(255,209,102,.3);color:var(--sand);}
+    .tl-card strong{color:#fff;}
+    .tl-card .sub{font-size:12px;color:var(--muted);margin-top:8px;}
+    .tl-card ul{padding-left:18px;margin-top:6px;}
+    .tl-card ul li{margin-bottom:4px;}
 
-    /* ====== SECTION HEADERS ====== */
-    .section-header {
-      display: flex;
-      align-items: center;
-      gap: 14px;
-      margin-bottom: 24px;
-    }
+    /* ─── RESTAURANT CARDS ─── */
+    .rest-grid{display:grid;grid-template-columns:repeat(auto-fill,minmax(260px,1fr));gap:16px;margin-bottom:50px;}
+    .rest-card{background:var(--card);border:1px solid var(--border);border-radius:16px;padding:20px;transition:transform .2s;}
+    .rest-card:hover{transform:translateY(-3px);}
+    .rest-header{display:flex;justify-content:space-between;align-items:flex-start;margin-bottom:10px;}
+    .rest-name{font-size:16px;font-weight:800;color:#fff;}
+    .rest-price{font-size:13px;color:var(--sand);}
+    .rest-badge{display:inline-block;font-size:11px;padding:3px 10px;border-radius:10px;margin-bottom:8px;font-weight:700;}
+    .badge-lunch{background:rgba(0,180,216,.15);color:var(--sky);}
+    .badge-dinner{background:rgba(6,214,160,.12);color:var(--green);}
+    .badge-snack{background:rgba(255,209,102,.12);color:var(--sand);}
+    .rest-mm{font-size:11px;color:var(--muted);margin-bottom:8px;}
+    .rest-card p{font-size:13px;color:var(--foam);line-height:1.7;}
+    .rest-card .must{color:var(--sand);font-weight:700;}
 
-    .section-icon {
-      width: 44px;
-      height: 44px;
-      border-radius: 12px;
-      display: flex;
-      align-items: center;
-      justify-content: center;
-      font-size: 22px;
-      flex-shrink: 0;
-    }
+    /* ─── SPOTS ─── */
+    .spots-grid{display:grid;grid-template-columns:repeat(auto-fill,minmax(260px,1fr));gap:16px;margin-bottom:50px;}
+    .spot-card{background:var(--card);border:1px solid var(--border);border-radius:16px;padding:20px;transition:transform .2s;}
+    .spot-card:hover{transform:translateY(-3px);}
+    .spot-emoji{font-size:32px;margin-bottom:10px;}
+    .spot-mm{font-size:11px;color:var(--sand);font-weight:700;letter-spacing:1px;margin-bottom:6px;}
+    .spot-card h3{font-size:16px;font-weight:800;color:#fff;margin-bottom:8px;}
+    .spot-card p{font-size:13px;color:var(--foam);line-height:1.7;}
+    .spot-card .note{font-size:12px;color:var(--muted);margin-top:8px;padding-top:8px;border-top:1px solid var(--border);}
 
-    .section-header h2 {
-      font-size: 22px;
-      font-weight: 700;
-      color: #ffffff;
-    }
+    /* ─── HIGHLIGHT BOX ─── */
+    .highlight-box{border-radius:20px;padding:30px;margin-bottom:50px;}
+    .hl-bridge{background:linear-gradient(135deg,rgba(167,139,250,.1),rgba(0,180,216,.08));border:2px solid rgba(167,139,250,.4);}
+    .hl-turn{background:linear-gradient(135deg,rgba(247,127,0,.12),rgba(255,209,102,.07));border:2px solid rgba(247,127,0,.45);}
+    .highlight-box h2{font-size:22px;font-weight:900;margin-bottom:8px;}
+    .highlight-box .sub{font-size:13px;margin-bottom:14px;}
+    .highlight-box p{font-size:14px;line-height:1.85;color:var(--foam);}
+    .hl-bridge h2{color:#c4b5fd;}
+    .hl-bridge .sub{color:#a78bfa;}
+    .hl-turn h2{color:var(--sand);}
+    .hl-turn .sub{color:var(--coral);}
+    .bridge-stats{display:flex;flex-wrap:wrap;gap:24px;margin:20px 0;}
+    .bs{text-align:center;}
+    .bs .n{font-size:28px;font-weight:900;color:#c4b5fd;display:block;}
+    .bs .l{font-size:12px;color:var(--muted);}
+    .inline-hl{display:inline-block;background:rgba(255,209,102,.15);border-radius:5px;padding:1px 8px;color:var(--sand);font-weight:700;}
 
-    .section-header p {
-      font-size: 13px;
-      color: #90e0ef;
-      margin-top: 2px;
-    }
+    /* ─── TIPS ─── */
+    .tips-grid{display:grid;grid-template-columns:repeat(auto-fill,minmax(200px,1fr));gap:14px;margin-bottom:50px;}
+    .tip{background:var(--card);border:1px solid var(--border);border-radius:14px;padding:18px;}
+    .tip .ti{font-size:26px;margin-bottom:8px;}
+    .tip h4{font-size:14px;font-weight:800;color:#fff;margin-bottom:6px;}
+    .tip p{font-size:13px;color:var(--foam);line-height:1.65;}
+    .tip.danger{border-color:rgba(239,71,111,.35);background:rgba(239,71,111,.06);}
+    .tip.danger h4{color:#ff8fa3;}
+    .tip.caution{border-color:rgba(255,209,102,.3);background:rgba(255,209,102,.05);}
+    .tip.caution h4{color:var(--sand);}
 
-    /* ====== TIMELINE ====== */
-    .timeline-section {
-      margin-bottom: 50px;
-    }
+    /* ─── CHECKLIST ─── */
+    .checklist{background:var(--card);border:1px solid var(--border);border-radius:16px;padding:24px;margin-bottom:50px;}
+    .checklist h3{font-size:16px;font-weight:800;color:#fff;margin-bottom:16px;}
+    .cl-group{margin-bottom:20px;}
+    .cl-group h4{font-size:13px;font-weight:700;color:var(--sky);letter-spacing:1px;margin-bottom:10px;}
+    .cl-item{display:flex;align-items:flex-start;gap:10px;padding:7px 0;border-bottom:1px solid rgba(255,255,255,.04);}
+    .cl-item:last-child{border-bottom:none;}
+    .cl-box{width:18px;height:18px;border:2px solid var(--border);border-radius:5px;flex-shrink:0;margin-top:2px;}
+    .cl-item span{font-size:13px;color:var(--foam);}
 
-    .timeline {
-      position: relative;
-      padding-left: 20px;
-    }
+    /* ─── FOOTER ─── */
+    .footer-banner{background:linear-gradient(135deg,rgba(0,119,182,.2),rgba(0,180,216,.1));border:1px solid rgba(0,180,216,.25);border-radius:20px;padding:32px;text-align:center;margin-bottom:60px;}
+    .footer-banner h2{font-size:20px;font-weight:800;color:#caf0f8;margin-bottom:10px;}
+    .footer-banner p{font-size:14px;color:var(--foam);line-height:1.8;}
+    footer{text-align:center;padding:20px;font-size:12px;color:var(--muted);opacity:.6;}
 
-    .timeline::before {
-      content: '';
-      position: absolute;
-      left: 20px;
-      top: 0;
-      bottom: 0;
-      width: 2px;
-      background: linear-gradient(to bottom, #00b4d8, #48cae4, #90e0ef, transparent);
-    }
-
-    .timeline-item {
-      position: relative;
-      padding: 0 0 30px 50px;
-    }
-
-    .timeline-dot {
-      position: absolute;
-      left: 12px;
-      top: 4px;
-      width: 18px;
-      height: 18px;
-      border-radius: 50%;
-      border: 3px solid;
-      background: #0d3b6e;
-      z-index: 1;
-    }
-
-    .dot-start  { border-color: #48cae4; box-shadow: 0 0 0 4px rgba(72,202,228,0.2); }
-    .dot-stop   { border-color: #90e0ef; box-shadow: 0 0 0 4px rgba(144,224,239,0.15); }
-    .dot-bridge { border-color: #ffd166; box-shadow: 0 0 0 4px rgba(255,209,102,0.25); }
-    .dot-turn   { border-color: #f77f00; box-shadow: 0 0 0 4px rgba(247,127,0,0.25); }
-    .dot-end    { border-color: #06d6a0; box-shadow: 0 0 0 4px rgba(6,214,160,0.2); }
-
-    .time-tag {
-      display: inline-block;
-      font-size: 12px;
-      font-weight: 700;
-      letter-spacing: 1px;
-      color: #48cae4;
-      margin-bottom: 4px;
-    }
-
-    .timeline-item h3 {
-      font-size: 17px;
-      font-weight: 700;
-      color: #ffffff;
-      margin-bottom: 6px;
-    }
-
-    .timeline-item p {
-      font-size: 14px;
-      color: #caf0f8;
-      line-height: 1.7;
-    }
-
-    .timeline-item .sub {
-      font-size: 12px;
-      color: #90e0ef;
-      margin-top: 4px;
-    }
-
-    /* ====== CARDS ====== */
-    .cards {
-      display: grid;
-      grid-template-columns: repeat(auto-fill, minmax(250px, 1fr));
-      gap: 18px;
-      margin-bottom: 50px;
-    }
-
-    .card {
-      background: rgba(255,255,255,0.05);
-      border: 1px solid rgba(255,255,255,0.1);
-      border-radius: 16px;
-      padding: 22px;
-      backdrop-filter: blur(10px);
-      transition: transform 0.2s, background 0.2s;
-    }
-
-    .card:hover {
-      transform: translateY(-3px);
-      background: rgba(255,255,255,0.09);
-    }
-
-    .card-emoji { font-size: 30px; margin-bottom: 10px; }
-
-    .card h3 {
-      font-size: 16px;
-      font-weight: 700;
-      color: #ffffff;
-      margin-bottom: 6px;
-    }
-
-    .card .mm {
-      font-size: 11px;
-      color: #ffd166;
-      font-weight: 700;
-      letter-spacing: 1px;
-      margin-bottom: 8px;
-    }
-
-    .card p {
-      font-size: 13px;
-      color: #caf0f8;
-      line-height: 1.7;
-    }
-
-    /* ====== TURNAROUND HIGHLIGHT ====== */
-    .turnaround {
-      background: linear-gradient(135deg, rgba(247,127,0,0.15), rgba(255,209,102,0.1));
-      border: 2px solid rgba(247,127,0,0.5);
-      border-radius: 20px;
-      padding: 30px;
-      margin-bottom: 50px;
-      position: relative;
-      overflow: hidden;
-    }
-
-    .turnaround::before {
-      content: '★ おすすめ折り返し地点';
-      position: absolute;
-      top: 12px;
-      right: 16px;
-      font-size: 11px;
-      font-weight: 700;
-      letter-spacing: 1px;
-      color: #ffd166;
-    }
-
-    .turnaround h2 {
-      font-size: 24px;
-      font-weight: 800;
-      color: #ffd166;
-      margin-bottom: 8px;
-    }
-
-    .turnaround .sub-title {
-      font-size: 14px;
-      color: #ffbe0b;
-      margin-bottom: 14px;
-    }
-
-    .turnaround p {
-      font-size: 14px;
-      color: #f0e6c8;
-      line-height: 1.8;
-    }
-
-    .turnaround .highlight {
-      display: inline-block;
-      background: rgba(255,209,102,0.2);
-      border-radius: 6px;
-      padding: 2px 8px;
-      color: #ffd166;
-      font-weight: 700;
-    }
-
-    /* ====== BRIDGE HIGHLIGHT ====== */
-    .bridge-box {
-      background: linear-gradient(135deg, rgba(72,202,228,0.12), rgba(0,180,216,0.08));
-      border: 2px solid rgba(72,202,228,0.4);
-      border-radius: 20px;
-      padding: 28px;
-      margin-bottom: 50px;
-      text-align: center;
-    }
-
-    .bridge-box h2 {
-      font-size: 22px;
-      font-weight: 800;
-      color: #48cae4;
-      margin-bottom: 10px;
-    }
-
-    .bridge-box p {
-      font-size: 14px;
-      color: #caf0f8;
-      line-height: 1.8;
-    }
-
-    .bridge-stat {
-      display: flex;
-      justify-content: center;
-      gap: 30px;
-      margin: 18px 0;
-      flex-wrap: wrap;
-    }
-
-    .stat {
-      text-align: center;
-    }
-
-    .stat .num {
-      font-size: 28px;
-      font-weight: 800;
-      color: #48cae4;
-      display: block;
-    }
-
-    .stat .label {
-      font-size: 12px;
-      color: #90e0ef;
-    }
-
-    /* ====== TIPS ====== */
-    .tips-grid {
-      display: grid;
-      grid-template-columns: repeat(auto-fill, minmax(200px, 1fr));
-      gap: 14px;
-      margin-bottom: 50px;
-    }
-
-    .tip {
-      background: rgba(255,255,255,0.05);
-      border: 1px solid rgba(255,255,255,0.1);
-      border-radius: 14px;
-      padding: 18px;
-    }
-
-    .tip .tip-icon { font-size: 24px; margin-bottom: 8px; }
-    .tip h4 { font-size: 14px; font-weight: 700; color: #ffffff; margin-bottom: 6px; }
-    .tip p { font-size: 13px; color: #caf0f8; line-height: 1.6; }
-
-    .tip.warn {
-      border-color: rgba(255,100,100,0.3);
-      background: rgba(255,100,100,0.06);
-    }
-
-    .tip.warn h4 { color: #ff8fa3; }
-
-    /* ====== FOOTER ====== */
-    .footer {
-      text-align: center;
-      padding: 20px;
-      color: #48cae4;
-      font-size: 13px;
-      opacity: 0.7;
-    }
-
-    @media (max-width: 600px) {
-      .bridge-stat { gap: 20px; }
-      .stat .num { font-size: 22px; }
+    @media(max-width:600px){
+      .bridge-stats{gap:16px;}
+      .bs .n{font-size:22px;}
     }
   </style>
 </head>
 <body>
 
-  <!-- HERO -->
-  <div class="hero">
-    <div class="badge">🚗 MEN'S ROAD TRIP 2026</div>
-    <h1>マイアミ → フロリダキーズ<br>日帰りドライブしおり</h1>
-    <p>男4人旅 ｜ 2026年3月22日（日）｜ 往復約320km</p>
+<!-- HERO -->
+<div class="hero">
+  <div class="wave-bg"></div>
+  <div class="badge">🚗 MEN'S ROAD TRIP 2026</div>
+  <h1>マイアミ → バヒア・ホンダ<br>フロリダキーズ完全ドライブしおり</h1>
+  <p class="hero-sub">2026年3月22日（日）｜男4人｜朝10時出発 → 夜10時返却</p>
+  <div class="chips">
+    <div class="chip">🛣️ 往復 約240マイル（386km）</div>
+    <div class="chip">⏱️ 所要 12時間</div>
+    <div class="chip">🌉 セブンマイルブリッジ通過</div>
+    <div class="chip">🏖️ バヒア・ホンダ折り返し</div>
   </div>
+</div>
 
-  <!-- INFO BAR -->
-  <div class="info-bar">
-    <div class="info-chip"><span class="icon">🕙</span>出発 10:00 AM（マイアミ空港付近）</div>
-    <div class="info-chip"><span class="icon">🕙</span>返却 10:00 PM（同レンタカー）</div>
-    <div class="info-chip"><span class="icon">👥</span>4名</div>
-    <div class="info-chip"><span class="icon">🌊</span>海の上を走る橋あり</div>
+<!-- NAV -->
+<nav>
+  <div class="nav-inner">
+    <a href="#overview">概要</a>
+    <a href="#timeline">タイムライン</a>
+    <a href="#bridge">橋の詳細</a>
+    <a href="#turnaround">折り返し地点</a>
+    <a href="#food">食事</a>
+    <a href="#spots">スポット</a>
+    <a href="#tips">注意点</a>
+    <a href="#checklist">持ち物</a>
   </div>
+</nav>
 
-  <div class="container">
+<div class="container">
 
-    <!-- TIMELINE -->
-    <div class="timeline-section">
-      <div class="section-header">
-        <div class="section-icon" style="background:rgba(72,202,228,0.15);">🗓️</div>
-        <div>
-          <h2>タイムライン（目安）</h2>
-          <p>余裕を持ったスケジュールです。渋滞次第で前後します</p>
-        </div>
-      </div>
+  <!-- OVERVIEW -->
+  <section id="overview">
+    <div class="sec-title">
+      <div class="sec-icon" style="background:rgba(0,180,216,.15);">📋</div>
+      <div><h2>トリップ概要</h2><p>数字で見る今日の旅</p></div>
+    </div>
+    <div class="stats-row">
+      <div class="stat-box"><span class="num">~120</span><span class="unit">マイル片道</span><span class="lbl">マイアミ→バヒア・ホンダ</span></div>
+      <div class="stat-box"><span class="num">~2.5</span><span class="unit">時間片道</span><span class="lbl">渋滞なし・ベスト</span></div>
+      <div class="stat-box"><span class="num">42</span><span class="unit">のキー（島）</span><span class="lbl">フロリダキーズ全体</span></div>
+      <div class="stat-box"><span class="num">7</span><span class="unit">マイル（11km）</span><span class="lbl">セブンマイルブリッジ</span></div>
+      <div class="stat-box"><span class="num">MM37</span><span class="unit">マイルマーカー</span><span class="lbl">バヒア・ホンダ</span></div>
+      <div class="stat-box"><span class="num">$8</span><span class="unit">入場料/車</span><span class="lbl">バヒア・ホンダSP</span></div>
+    </div>
+  </section>
 
-      <div class="timeline">
-
-        <div class="timeline-item">
-          <div class="timeline-dot dot-start"></div>
-          <span class="time-tag">10:00 AM</span>
-          <h3>🚘 マイアミ空港付近 出発</h3>
-          <p>出発前にガソリン満タン必須。US-1（オーバーシーズ・ハイウェイ）を南下。</p>
-        </div>
-
-        <div class="timeline-item">
-          <div class="timeline-dot dot-stop"></div>
-          <span class="time-tag">11:00 AM ごろ</span>
-          <h3>🐟 キーラーゴ（Key Largo）</h3>
-          <p>フロリダキーズへの入口。海の透明度に感動するはず。ジョン・ペンキャンプ州立公園そばの「Fish House」などで軽く立ち寄ってもOK。</p>
-          <p class="sub">📍 Mile Marker 100 付近</p>
-        </div>
-
-        <div class="timeline-item">
-          <div class="timeline-dot dot-stop"></div>
-          <span class="time-tag">12:00〜1:00 PM</span>
-          <h3>🍺 イスラモラーダ（Islamorada）でランチ</h3>
-          <p>「フィッシングキャピタル・オブ・ザ・ワールド」の別名を持つ絶景の島。Morada Bay Beach Caféやバドワイザービーチなど海沿いのレストランでランチ。</p>
-          <p class="sub">📍 Mile Marker 81〜73 付近</p>
-        </div>
-
-        <div class="timeline-item">
-          <div class="timeline-dot dot-bridge"></div>
-          <span class="time-tag">2:00〜2:30 PM</span>
-          <h3>🌉 セブンマイルブリッジ 到着・通過</h3>
-          <p>マラソン市（Marathon）から出発する全長<strong>約11km</strong>の海上橋。海の真ん中を突き抜けるあの橋がここ！橋の手前で写真スポットあり。</p>
-          <p class="sub">📍 Mile Marker 47（マラソン）〜MM 40</p>
-        </div>
-
-        <div class="timeline-item">
-          <div class="timeline-dot dot-turn"></div>
-          <span class="time-tag">3:00 PM ★折り返し</span>
-          <h3>🏖️ バヒア・ホンダ州立公園（Bahia Honda）でUターン</h3>
-          <p>橋を渡った先にある絶景ビーチ。エメラルドグリーンの海と白砂。旧橋の廃墟も見える歴史的スポット。ここで折り返せば余裕を持って帰れます。</p>
-          <p class="sub">📍 Mile Marker 37｜往路の最終目的地</p>
-        </div>
-
-        <div class="timeline-item">
-          <div class="timeline-dot dot-stop"></div>
-          <span class="time-tag">5:00〜6:00 PM</span>
-          <h3>🦞 帰り道・イスラモラーダで夕食</h3>
-          <p>帰り道にもう一度イスラモラーダへ。「Lorelei Restaurant」などで石焼きロブスターやストーンクラブを堪能。</p>
-        </div>
-
-        <div class="timeline-item">
-          <div class="timeline-dot dot-end"></div>
-          <span class="time-tag">8:30〜9:00 PM</span>
-          <h3>✅ マイアミ空港付近 到着・返却</h3>
-          <p>余裕を持って10PM返却に間に合います。渋滞が予想されるUS-1は帰り道も同じルートなので遅くとも7時には出発を。</p>
-        </div>
-
-      </div>
+  <!-- TIMELINE -->
+  <section id="timeline">
+    <div class="sec-title">
+      <div class="sec-icon" style="background:rgba(0,180,216,.15);">🗓️</div>
+      <div><h2>タイムライン</h2><p>渋滞・滞在時間は目安です。余裕を持って動いてください</p></div>
     </div>
 
-    <!-- TURNAROUND -->
-    <div class="turnaround">
-      <h2>🏖️ バヒア・ホンダ州立公園</h2>
-      <div class="sub-title">Mile Marker 37 ｜ おすすめ折り返し地点</div>
+    <div class="tl">
+
+      <div class="tl-item">
+        <div class="tl-dot dot-depart"></div>
+        <div class="tl-time">10:00 AM</div>
+        <h3>🚘 マイアミ空港付近 出発</h3>
+        <div class="tl-card">
+          <p>レンタカー受け取り後、<strong>最初にガソリンを満タン</strong>にしてから出発。キーズ内のガスは高い。</p>
+          <p>US-1（フラグラー・ストリート方面）に乗り、フロリダシティ方向へ南下。高速（Florida's Turnpike）を使うと少し早い。</p>
+          <p class="sub">📍 出発地点 ｜ マイアミ国際空港（MIA）周辺</p>
+        </div>
+      </div>
+
+      <div class="tl-item">
+        <div class="tl-dot dot-stop"></div>
+        <div class="tl-time">10:45〜11:00 AM</div>
+        <h3>🌴 フロリダシティ通過</h3>
+        <div class="tl-card">
+          <p>フロリダ本土最後の街。ここを過ぎると橋が連続し始め、「キーズに来た感」が急に出てくる。</p>
+          <p>コンビニ・トイレ休憩はここで済ませておくと安心。</p>
+          <p class="sub">📍 最後の大型スーパー・ガソリンスタンドがある</p>
+        </div>
+      </div>
+
+      <div class="tl-item">
+        <div class="tl-dot dot-stop"></div>
+        <div class="tl-time">11:15〜11:45 AM</div>
+        <h3>🐟 キーラーゴ（Key Largo）軽く立ち寄り</h3>
+        <div class="tl-card">
+          <p>フロリダキーズへの入口。橋を渡り始めると急に海の色が変わる。写真スポットとして最初の感動ポイント。</p>
+          <p>ここでは深く寄らず、コーヒーやスナックを買う程度でOK。後のランチに備えて腹を空かせておく。</p>
+          <p><span class="tag">John Pennekamp SP</span>からグラスボートも出てるが今日はスキップ推奨</p>
+          <p class="sub">📍 Mile Marker 100 付近 ｜ マイアミから約60マイル</p>
+        </div>
+      </div>
+
+      <div class="tl-item">
+        <div class="tl-dot dot-lunch"></div>
+        <div class="tl-time">12:30〜2:00 PM ★ランチ</div>
+        <h3>🍽️ イスラモラーダ（Islamorada）でランチ</h3>
+        <div class="tl-card">
+          <p>「世界のフィッシングキャピタル」と呼ばれる島々。海沿いのレストランが集中しており、<strong>この旅で最高の食事ポイント</strong>。</p>
+          <p>1〜1.5時間でゆっくり食べて出発すれば橋に余裕で間に合う。</p>
+          <p><span class="tag good-tag">Morada Bay Beach Café</span> ビーチに机が並ぶ最高の雰囲気</p>
+          <p><span class="tag good-tag">Lorelei Restaurant & Cabana Bar</span> 地元民御用達・海岸沿い</p>
+          <p class="sub">📍 Mile Marker 81〜73 ｜ マイアミから約80マイル</p>
+        </div>
+      </div>
+
+      <div class="tl-item">
+        <div class="tl-dot dot-stop"></div>
+        <div class="tl-time">2:15〜2:30 PM</div>
+        <h3>🎣 マラソン（Marathon）通過・橋の手前へ</h3>
+        <div class="tl-card">
+          <p>セブンマイルブリッジが始まるマラソン市。橋の手前（<strong>MM47付近</strong>）に駐車スペースがあり、<strong>橋の全景を陸から撮れる唯一のチャンス</strong>。</p>
+          <p>「Knight's Key Park」付近が撮影ポイント。5〜10分停まって写真を撮っておくべし。</p>
+          <p><span class="tag warn-tag">⚠ 橋の上は駐停車禁止</span> — 写真は必ずここで</p>
+          <p class="sub">📍 Mile Marker 47 ｜ マイアミから約110マイル</p>
+        </div>
+      </div>
+
+      <div class="tl-item">
+        <div class="tl-dot dot-bridge"></div>
+        <div class="tl-time">2:30〜2:45 PM ★メインイベント</div>
+        <h3>🌉 セブンマイルブリッジ 走破！</h3>
+        <div class="tl-card">
+          <p>全長<strong>11km（約7マイル）</strong>。橋を走り始めると左右に水平線まで広がる海だけが見える。陸地が完全に消える区間あり。</p>
+          <p>ゆっくり走っても<strong>約10〜12分</strong>で渡り切る。スピード制限は<strong>55mph（約90km/h）</strong>。</p>
+          <p>窓を全開にして走るのが最高。プレイリストのタイミングをここに合わせると映える。</p>
+          <p><span class="tag">MM47 → MM40</span><span class="tag warn-tag">55mph制限</span><span class="tag warn-tag">駐停車禁止</span></p>
+        </div>
+      </div>
+
+      <div class="tl-item">
+        <div class="tl-dot dot-turn"></div>
+        <div class="tl-time">3:00〜4:30 PM ★折り返し地点</div>
+        <h3>🏖️ バヒア・ホンダ州立公園（Bahia Honda SP）</h3>
+        <div class="tl-card">
+          <p>橋を渡り切って5分。フロリダ屈指の美しさを誇る州立公園。<strong>1〜1.5時間</strong>ゆっくり過ごして折り返す。</p>
+          <ul>
+            <li>Sandspur Beach：透明度の高い遠浅ビーチ。泳ぎたければここで</li>
+            <li>旧バヒア・ホンダ橋：廃墟になった旧橋が海から突き出る絶景フォトスポット</li>
+            <li>展望デッキ：360度の海パノラマ</li>
+          </ul>
+          <p><span class="tag gold-tag">入場料 $8/車（現金可）</span><span class="tag">広い駐車場あり</span></p>
+          <p class="sub">📍 Mile Marker 37 ｜ 橋の出口からわずか3マイル</p>
+        </div>
+      </div>
+
+      <div class="tl-item">
+        <div class="tl-dot dot-stop"></div>
+        <div class="tl-time">4:30 PM 折り返し出発</div>
+        <h3>🔄 マイアミへ帰路スタート</h3>
+        <div class="tl-card">
+          <p>4:30〜5:00PMには出発しないと夕食の時間が取れない。<strong>遅くとも5:00PMには出発</strong>すること。</p>
+          <p>帰りも同じUS-1を北上。日曜夕方は混雑するので余裕を持って。</p>
+          <p><span class="tag warn-tag">⚠ 5:00PM以降出発は夕食が慌ただしくなる</span></p>
+        </div>
+      </div>
+
+      <div class="tl-item">
+        <div class="tl-dot dot-dinner"></div>
+        <div class="tl-time">6:00〜7:30 PM ★夕食</div>
+        <h3>🦞 帰り道・イスラモラーダで夕食</h3>
+        <div class="tl-card">
+          <p>帰りがけにもう一度イスラモラーダへ。フロリダキーズの名物シーフードで締める。</p>
+          <p><span class="tag good-tag">Lazy Days Restaurant</span> ストーンクラブ・スナッパーが絶品</p>
+          <p><span class="tag good-tag">Green Turtle Inn</span> 1947年創業の老舗・雰囲気抜群</p>
+          <p class="sub">ここで1〜1.5時間ゆっくり食べてもマイアミ返却に余裕で間に合う</p>
+        </div>
+      </div>
+
+      <div class="tl-item">
+        <div class="tl-dot dot-end"></div>
+        <div class="tl-time">9:00〜9:30 PM</div>
+        <h3>✅ マイアミ空港付近 到着・返却</h3>
+        <div class="tl-card">
+          <p>10PM返却に対して30〜60分の余裕あり。渋滞があっても焦らない時間設定になっている。</p>
+          <p>返却前にガソリンを入れ直すことを忘れずに（返し忘れると法外な請求あり）。</p>
+          <p><span class="tag warn-tag">⚠ 返却前ガソリン補給必須</span></p>
+        </div>
+      </div>
+
+    </div>
+  </section>
+
+  <!-- BRIDGE -->
+  <section id="bridge">
+    <div class="sec-title">
+      <div class="sec-icon" style="background:rgba(167,139,250,.15);">🌉</div>
+      <div><h2>セブンマイルブリッジ 詳細</h2><p>この旅の最大のハイライト</p></div>
+    </div>
+    <div class="highlight-box hl-bridge">
+      <h2>Seven Mile Bridge</h2>
+      <div class="sub">1982年完成｜フロリダキーズのシンボル橋</div>
+      <div class="bridge-stats">
+        <div class="bs"><span class="n">11 km</span><span class="l">全長</span></div>
+        <div class="bs"><span class="n">MM47</span><span class="l">マラソン側入口</span></div>
+        <div class="bs"><span class="n">MM40</span><span class="l">出口（バヒア側）</span></div>
+        <div class="bs"><span class="n">55 mph</span><span class="l">速度制限</span></div>
+        <div class="bs"><span class="n">~10分</span><span class="l">渡りきる時間</span></div>
+      </div>
       <p>
-        セブンマイルブリッジを渡り切った先、<span class="highlight">Mile Marker 37</span>にある州立公園。<br><br>
-        ここが絶対おすすめの理由は3つ：<br>
-        ① <strong>フロリダ屈指の美しいビーチ</strong>（透明度・砂質ともに最高クラス）<br>
-        ② <strong>旧バヒア・ホンダ橋の廃墟</strong>が海に浮かぶ絶景フォトスポット<br>
-        ③ <strong>帰りのドライブ余裕</strong>がたっぷり確保できる（マイアミまで約2〜2.5時間）<br><br>
-        キーウェストまでは行かなくても、ここまで来れば「フロリダキーズを制覇した」と言える充実感があります。
+        橋の上では<strong>左右どちらを見ても水平線まで海が広がり</strong>、完全に陸地が見えなくなる区間がある。日本ではまず体験できない「海の真ん中を走る」感覚。<br><br>
+        橋の横には<strong>旧セブンマイルブリッジ（1912年完成・廃橋）</strong>が並走しており、車窓から廃墟の橋と海の組み合わせが見える。<br><br>
+        映画『トゥルーライズ（True Lies）』のハーリアーがハリエット・タスマンをジャンプさせるシーンでも有名。<br><br>
+        ⚠️ <strong>橋の上は絶対に駐停車禁止</strong>。橋に入る前（MM47・Knight's Key Park付近）で必ず写真を撮ること。
       </p>
     </div>
+  </section>
 
-    <!-- BRIDGE BOX -->
-    <div class="bridge-box">
-      <h2>🌉 セブンマイルブリッジ（Seven Mile Bridge）</h2>
-      <div class="bridge-stat">
-        <div class="stat">
-          <span class="num">11 km</span>
-          <span class="label">橋の全長</span>
-        </div>
-        <div class="stat">
-          <span class="num">MM 47</span>
-          <span class="label">スタート地点</span>
-        </div>
-        <div class="stat">
-          <span class="num">1982</span>
-          <span class="label">完成年</span>
-        </div>
-      </div>
+  <!-- TURNAROUND -->
+  <section id="turnaround">
+    <div class="sec-title">
+      <div class="sec-icon" style="background:rgba(247,127,0,.15);">🏖️</div>
+      <div><h2>折り返し地点：バヒア・ホンダ</h2><p>ここまで来た甲斐があった、と思える場所</p></div>
+    </div>
+    <div class="highlight-box hl-turn">
+      <h2>Bahia Honda State Park</h2>
+      <div class="sub">Mile Marker 37｜入場 $8/車</div>
       <p>
-        マラソン市（Mile Marker 47）からリトルダックキー（MM 40）まで続く、<br>
-        海の上をひたすら走る圧巻の橋。左右を見渡せば水平線まで全部海。<br>
-        映画「True Lies（トゥルーライズ）」のカーチェイスシーンでも有名。<br><br>
-        ⚠️ 橋の上は駐停車禁止。写真は手前の「Sombrero Beach」や橋のたもとで撮るべし。
+        セブンマイルブリッジを渡り切ってから<span class="inline-hl">わずか3マイル・5分</span>。フロリダキーズの中でも特別な場所として知られる州立公園。<br><br>
+        <strong>① Sandspur Beach</strong> — カリブ海のような白砂とターコイズブルーの遠浅ビーチ。水温も暖かく泳げる。<br>
+        <strong>② 旧バヒア・ホンダ橋の廃墟</strong> — 1912年建設の旧橋が砕け、海から脚だけが突き出る圧巻の廃墟写真スポット。<br>
+        <strong>③ 展望デッキ</strong> — 旧橋の上に上がれるルートがあり、周囲360度の海パノラマが見渡せる。<br><br>
+        ここで1〜1.5時間滞在すれば、完全に「フロリダキーズを満喫した」と言える体験ができる。キーウェストに行かなくてもここで十分。
       </p>
     </div>
+  </section>
 
-    <!-- MUST-SEE SPOTS -->
-    <div class="section-header" style="margin-bottom:24px;">
-      <div class="section-icon" style="background:rgba(255,209,102,0.15);">📍</div>
-      <div>
-        <h2>絶対に行くべきスポット</h2>
-        <p>このルート上のハイライト</p>
+  <!-- FOOD -->
+  <section id="food">
+    <div class="sec-title">
+      <div class="sec-icon" style="background:rgba(255,209,102,.15);">🍽️</div>
+      <div><h2>食事ガイド</h2><p>フロリダキーズのシーフードは絶対に食べるべし</p></div>
+    </div>
+    <div class="rest-grid">
+
+      <div class="rest-card">
+        <div class="rest-header">
+          <div class="rest-name">Morada Bay Beach Café</div>
+          <div class="rest-price">$$〜$$$</div>
+        </div>
+        <div class="rest-badge badge-lunch">ランチ推奨</div>
+        <div class="rest-mm">📍 MM81.6 / Islamorada</div>
+        <p>ビーチの砂の上にテーブルが並ぶ。海を眺めながらシーフードプラッター・タコス・バーガー。雰囲気は全店随一。<span class="must">雰囲気No.1</span></p>
+      </div>
+
+      <div class="rest-card">
+        <div class="rest-header">
+          <div class="rest-name">Lorelei Restaurant & Cabana Bar</div>
+          <div class="rest-price">$$</div>
+        </div>
+        <div class="rest-badge badge-lunch">ランチ推奨</div>
+        <div class="rest-mm">📍 MM82 / Islamorada</div>
+        <p>地元民が集まるカジュアルなバー＆グリル。クラフトビールとコンク（巻き貝）フライが名物。<span class="must">コスパ◎</span></p>
+      </div>
+
+      <div class="rest-card">
+        <div class="rest-header">
+          <div class="rest-name">Lazy Days Restaurant</div>
+          <div class="rest-price">$$$</div>
+        </div>
+        <div class="rest-badge badge-dinner">夕食推奨</div>
+        <div class="rest-mm">📍 MM79.9 / Islamorada</div>
+        <p>ストーンクラブ・マングローブスナッパーが絶品。地元漁師が直接おろしてくる新鮮さ。予約なしでも比較的入れる。<span class="must">シーフードNo.1</span></p>
+      </div>
+
+      <div class="rest-card">
+        <div class="rest-header">
+          <div class="rest-name">Green Turtle Inn</div>
+          <div class="rest-price">$$$</div>
+        </div>
+        <div class="rest-badge badge-dinner">夕食推奨</div>
+        <div class="rest-mm">📍 MM81.5 / Islamorada</div>
+        <p>1947年創業の老舗レストラン。タートルスープ（ウミガメではなく伝統レシピ）とキーライムパイが名物。歴史ある内装も見どころ。</p>
+      </div>
+
+      <div class="rest-card">
+        <div class="rest-header">
+          <div class="rest-name">Fish House</div>
+          <div class="rest-price">$$</div>
+        </div>
+        <div class="rest-badge badge-snack">キーラーゴ寄り道</div>
+        <div class="rest-mm">📍 MM102.4 / Key Largo</div>
+        <p>行き帰りのキーラーゴで軽く寄れる海鮮系。マヒマヒ（シイラ）バーガーとクラムチャウダーが定番。</p>
+      </div>
+
+      <div class="rest-card">
+        <div class="rest-header">
+          <div class="rest-name">ピクニックBBQ（提案）</div>
+          <div class="rest-price">$</div>
+        </div>
+        <div class="rest-badge badge-snack">バヒア・ホンダ内</div>
+        <div class="rest-mm">📍 MM37 / Bahia Honda SP</div>
+        <p>公園内にBBQグリルあり。マラソンのスーパー（Winn-Dixie・MM50）で食材を買って公園でBBQも最高。<span class="must">4人旅に最適</span></p>
+      </div>
+
+    </div>
+
+    <div style="background:var(--card);border:1px solid var(--border);border-radius:14px;padding:20px;margin-bottom:50px;">
+      <h3 style="font-size:15px;font-weight:800;color:var(--sand);margin-bottom:12px;">🦞 フロリダキーズで食べるべきもの</h3>
+      <div style="display:grid;grid-template-columns:repeat(auto-fill,minmax(180px,1fr));gap:10px;font-size:13px;color:var(--foam);">
+        <div>🦀 <strong>ストーンクラブ</strong> — フロリダ名物。10〜5月がシーズン</div>
+        <div>🐚 <strong>コンク（Conch）</strong> — 大型巻き貝フライ・スープ</div>
+        <div>🐟 <strong>マヒマヒ</strong> — 白身のシイラ。グリルが美味</div>
+        <div>🍋 <strong>キーライムパイ</strong> — キーズ発祥のデザート。必食</div>
+        <div>🍺 <strong>クラフトビール</strong> — フロリダのIPA系が豊富</div>
+        <div>🍹 <strong>フローズンマルガリータ</strong> — 屋外バーの定番</div>
       </div>
     </div>
-    <div class="cards" style="margin-bottom:50px;">
+  </section>
 
-      <div class="card">
-        <div class="card-emoji">🌊</div>
-        <div class="mm">MM 100 付近</div>
-        <h3>キーラーゴ入口</h3>
-        <p>「キーズへようこそ」の記念撮影スポット。橋の上から見える海の青さが最初の感動ポイント。</p>
+  <!-- SPOTS -->
+  <section id="spots">
+    <div class="sec-title">
+      <div class="sec-icon" style="background:rgba(6,214,160,.15);">📍</div>
+      <div><h2>立ち寄りスポット一覧</h2><p>ルート順（北→南）</p></div>
+    </div>
+    <div class="spots-grid">
+
+      <div class="spot-card">
+        <div class="spot-emoji">🌴</div>
+        <div class="spot-mm">MM 106</div>
+        <h3>フロリダシティ</h3>
+        <p>キーズ直前の最後の街。ガソリン・トイレ・コンビニ休憩はここで。ウォルマートもある。</p>
+        <div class="note">⏱ 停車5〜10分でOK</div>
       </div>
 
-      <div class="card">
-        <div class="card-emoji">🍺</div>
-        <div class="mm">MM 81〜73</div>
+      <div class="spot-card">
+        <div class="spot-emoji">🐠</div>
+        <div class="spot-mm">MM 100</div>
+        <h3>キーラーゴ</h3>
+        <p>フロリダキーズの入口。海の色が突然変わり始める。John Pennekamp State ParkではSnorkelツアーも出ているが今日はパス推奨。</p>
+        <div class="note">⏱ 軽く立ち寄り10〜15分</div>
+      </div>
+
+      <div class="spot-card">
+        <div class="spot-emoji">🎣</div>
+        <div class="spot-mm">MM 73〜81</div>
         <h3>イスラモラーダ</h3>
-        <p>海沿いのカフェ・バーが充実。「Morada Bay」はビーチに机が並ぶ最高の雰囲気。ランチまたは夕食に最適。</p>
+        <p>「世界のフィッシングキャピタル」。ランチと夕食の両方で使えるレストランが集中。海沿いの雰囲気が最高。</p>
+        <div class="note">⏱ ランチ1〜1.5時間 ／ 夕食1〜1.5時間</div>
       </div>
 
-      <div class="card">
-        <div class="card-emoji">🌉</div>
-        <div class="mm">MM 47</div>
+      <div class="spot-card">
+        <div class="spot-emoji">🎯</div>
+        <div class="spot-mm">MM 50</div>
+        <h3>Winn-Dixie（スーパー）</h3>
+        <p>マラソン市内のスーパーマーケット。バヒア・ホンダでBBQしたい場合は橋の手前でここに寄って食材を仕入れる。</p>
+        <div class="note">⏱ BBQしない場合はスキップ</div>
+      </div>
+
+      <div class="spot-card">
+        <div class="spot-emoji">📸</div>
+        <div class="spot-mm">MM 47</div>
+        <h3>Knight's Key Park（橋の撮影ポイント）</h3>
+        <p>セブンマイルブリッジに入る直前の撮影スポット。橋全体と海のパノラマを陸から撮れる唯一の場所。ここを逃すと写真が撮れない。</p>
+        <div class="note">⏱ 必ず5〜10分停車 ⚠ 橋の上は撮影不可</div>
+      </div>
+
+      <div class="spot-card">
+        <div class="spot-emoji">🌉</div>
+        <div class="spot-mm">MM 47〜40</div>
         <h3>セブンマイルブリッジ</h3>
-        <p>このドライブのメインイベント。橋を渡り切るまでずっと海が続く体験は唯一無二。</p>
+        <p>この旅のメインイベント。窓全開・音楽全開で走り抜ける。橋の上では写真は撮れないので景色と感覚を体に刻む時間。</p>
+        <div class="note">⏱ 通過約10〜12分（ドライブ体験）</div>
       </div>
 
-      <div class="card">
-        <div class="card-emoji">🏖️</div>
-        <div class="mm">MM 37</div>
-        <h3>バヒア・ホンダ S.P.</h3>
-        <p>フロリダで最も美しいビーチのひとつ。入場料あり（車1台$8程度）。泳がなくても絶景は楽しめる。</p>
-      </div>
-
-      <div class="card">
-        <div class="card-emoji">🦞</div>
-        <div class="mm">帰り道</div>
-        <h3>シーフードディナー</h3>
-        <p>ストーンクラブ・スパイシーシュリンプ・コンク貝が名物。イスラモラーダで帰り道に食べるのが王道。</p>
-      </div>
-
-      <div class="card">
-        <div class="card-emoji">🌅</div>
-        <div class="mm">全ルート</div>
-        <h3>オーバーシーズ・ハイウェイ</h3>
-        <p>US-1のフロリダキーズ区間の別名。海の上を走る橋が連続する、アメリカで最もドラマチックな道路のひとつ。</p>
+      <div class="spot-card">
+        <div class="spot-emoji">🏖️</div>
+        <div class="spot-mm">MM 37</div>
+        <h3>バヒア・ホンダ州立公園</h3>
+        <p>白砂ビーチ・廃橋の廃墟・展望デッキ・BBQエリアが揃う。フロリダキーズのベストビーチとも言われる。入場料$8/車。</p>
+        <div class="note">⏱ 1〜1.5時間滞在推奨 ｜ 折り返し地点</div>
       </div>
 
     </div>
+  </section>
 
-    <!-- TIPS -->
-    <div class="section-header" style="margin-bottom:24px;">
-      <div class="section-icon" style="background:rgba(255,100,100,0.15);">⚠️</div>
-      <div>
-        <h2>注意点・ドライブアドバイス</h2>
-        <p>これだけ押さえれば快適に走れます</p>
-      </div>
+  <!-- TIPS -->
+  <section id="tips">
+    <div class="sec-title">
+      <div class="sec-icon" style="background:rgba(239,71,111,.15);">⚠️</div>
+      <div><h2>注意点・ドライブアドバイス</h2><p>これだけ押さえれば快適に走れる</p></div>
     </div>
     <div class="tips-grid">
 
-      <div class="tip warn">
-        <div class="tip-icon">⛽</div>
-        <h4>出発前にガス満タン</h4>
-        <p>キーズ内はガソリンスタンドが少なく割高。マイアミ市内で必ず満タンに。</p>
+      <div class="tip danger">
+        <div class="ti">⛽</div>
+        <h4>出発前ガス満タン</h4>
+        <p>フロリダシティを過ぎるとガスが激減＆割高。マイアミ出発前に必ず入れること。帰りの返却前も忘れずに。</p>
       </div>
 
-      <div class="tip warn">
-        <div class="tip-icon">🚦</div>
-        <h4>渋滞に注意</h4>
-        <p>US-1は片道1〜2車線のみ。週末の昼〜夕方は渋滞しやすい。Google Mapsで随時確認を。</p>
+      <div class="tip danger">
+        <div class="ti">🚔</div>
+        <h4>スピード取締り厳しい</h4>
+        <p>US-1のキーズ区間は地元警察のパトロールが多い。45〜55mphの制限を守ること。橋上55mph。</p>
       </div>
 
-      <div class="tip warn">
-        <div class="tip-icon">🚔</div>
-        <h4>スピードには要注意</h4>
-        <p>橋の上は55mph制限。ローカルポリスが多く、スピード違反の取締りが厳しいエリア。</p>
+      <div class="tip caution">
+        <div class="ti">🚦</div>
+        <h4>渋滞（帰り道）</h4>
+        <p>日曜の夕方はUS-1が渋滞しやすい。5PM以降に帰路につく場合はGoogleマップで随時確認。バイパスなし。</p>
+      </div>
+
+      <div class="tip caution">
+        <div class="ti">📸</div>
+        <h4>橋の写真は手前で</h4>
+        <p>セブンマイルブリッジの上は駐停車禁止。MM47のKnight's Key Park付近で橋に入る前に必ず写真を撮ること。</p>
       </div>
 
       <div class="tip">
-        <div class="tip-icon">🧴</div>
+        <div class="ti">🧴</div>
         <h4>日焼け止め必須</h4>
-        <p>南フロリダの日差しは強烈。ビーチに出るなら日焼け止めSPF50以上を忘れずに。</p>
+        <p>南フロリダの3月は日差しが強烈。ビーチに出るならSPF50以上を全員分。サングラスも忘れずに。</p>
       </div>
 
       <div class="tip">
-        <div class="tip-icon">💵</div>
-        <h4>現金も少し持参</h4>
-        <p>州立公園や小さなシーフードスタンドはカードが使えないこともある。$50程度は現金で。</p>
+        <div class="ti">💵</div>
+        <h4>現金$50程度持参</h4>
+        <p>バヒア・ホンダの入場料（$8/車）は現金可。小さなシーフードスタンドもカード不可の場合あり。</p>
       </div>
 
       <div class="tip">
-        <div class="tip-icon">📱</div>
-        <h4>電波は問題なし</h4>
-        <p>全ルート通じてT-Mobile / AT&T は概ね通じる。ただし橋の上は電波が弱いことも。</p>
+        <div class="ti">🏊</div>
+        <h4>泳ぐ気なら水着を</h4>
+        <p>バヒア・ホンダのSandspur Beachは遠浅で波も穏やか。3月の水温は約25℃程度で泳げる。タオルも忘れずに。</p>
       </div>
 
       <div class="tip">
-        <div class="tip-icon">🅿️</div>
-        <h4>駐車は余裕あり</h4>
-        <p>州立公園・レストランともに広い駐車場あり。並列駐車の必要はほぼなし。</p>
+        <div class="ti">🎵</div>
+        <h4>プレイリスト準備</h4>
+        <p>橋の上は信号も交差点もゼロ。往復で合計20分間「海だけ」の体験になる。BGMにこだわると最高の時間になる。</p>
       </div>
 
       <div class="tip">
-        <div class="tip-icon">🎵</div>
-        <h4>プレイリストを用意</h4>
-        <p>橋の上は信号も曲がり角もゼロ。ひたすら海が続くので最高のBGM時間になります。</p>
+        <div class="ti">📱</div>
+        <h4>電波は基本OK</h4>
+        <p>T-Mobile / AT&T はルート全体でほぼ繋がる。橋の上は一時的に弱くなることも。オフラインマップをDLしておくと安心。</p>
+      </div>
+
+      <div class="tip">
+        <div class="ti">🦟</div>
+        <h4>虫除けスプレー</h4>
+        <p>公園内・特に夕方以降は蚊が出ることがある。虫除けスプレーをひとつ持っておくと安心。</p>
       </div>
 
     </div>
+  </section>
 
-    <!-- FINAL NOTE -->
-    <div style="background:rgba(255,255,255,0.04);border:1px solid rgba(255,255,255,0.1);border-radius:16px;padding:28px;text-align:center;">
-      <p style="font-size:18px;font-weight:700;color:#caf0f8;margin-bottom:10px;">🌊 良い旅を！行ってらっしゃい！🌊</p>
-      <p style="font-size:14px;color:#90e0ef;line-height:1.8;">
-        マイアミ空港 10:00 出発 → セブンマイルブリッジ通過 → バヒア・ホンダで折り返し<br>
-        → イスラモラーダでシーフードディナー → 空港 9:00 PM帰着<br><br>
-        キーウェストには行かなくても、この旅は一生の思い出になるはずです。
-      </p>
+  <!-- CHECKLIST -->
+  <section id="checklist">
+    <div class="sec-title">
+      <div class="sec-icon" style="background:rgba(0,180,216,.15);">✅</div>
+      <div><h2>出発前チェックリスト</h2><p>4人でシェアして確認を</p></div>
     </div>
+    <div class="checklist">
+      <div class="cl-group">
+        <h4>🚗 車・出発前</h4>
+        <div class="cl-item"><div class="cl-box"></div><span>ガソリン満タン（マイアミ出発前）</span></div>
+        <div class="cl-item"><div class="cl-box"></div><span>Google Maps にルート（マイアミ → MM37）をセット</span></div>
+        <div class="cl-item"><div class="cl-box"></div><span>Bluetooth・音楽プレイリスト準備完了</span></div>
+        <div class="cl-item"><div class="cl-box"></div><span>スマホ充電100%（orモバイルバッテリー持参）</span></div>
+      </div>
+      <div class="cl-group">
+        <h4>👕 持ち物</h4>
+        <div class="cl-item"><div class="cl-box"></div><span>水着 ＆ タオル（バヒア・ホンダで使う）</span></div>
+        <div class="cl-item"><div class="cl-box"></div><span>日焼け止め SPF50以上</span></div>
+        <div class="cl-item"><div class="cl-box"></div><span>サングラス（海上は反射がきつい）</span></div>
+        <div class="cl-item"><div class="cl-box"></div><span>虫除けスプレー</span></div>
+        <div class="cl-item"><div class="cl-box"></div><span>現金 $50程度（入場料・スタンドグルメ用）</span></div>
+      </div>
+      <div class="cl-group">
+        <h4>📸 写真スポット確認</h4>
+        <div class="cl-item"><div class="cl-box"></div><span>MM47 Knight's Key Park で橋の手前写真 ← 橋の上は撮れない</span></div>
+        <div class="cl-item"><div class="cl-box"></div><span>バヒア・ホンダ：旧橋廃墟の写真</span></div>
+        <div class="cl-item"><div class="cl-box"></div><span>イスラモラーダ：海沿いのランチ写真</span></div>
+      </div>
+      <div class="cl-group">
+        <h4>⏰ 時間管理</h4>
+        <div class="cl-item"><div class="cl-box"></div><span>バヒア・ホンダ出発は遅くとも 5:00 PM まで</span></div>
+        <div class="cl-item"><div class="cl-box"></div><span>イスラモラーダ夕食は 7:30 PM には出発</span></div>
+        <div class="cl-item"><div class="cl-box"></div><span>返却前にガソリン補給</span></div>
+        <div class="cl-item"><div class="cl-box"></div><span>10:00 PM までに返却カウンターへ</span></div>
+      </div>
+    </div>
+  </section>
 
+  <!-- FOOTER BANNER -->
+  <div class="footer-banner">
+    <h2>🌊 最高の旅になりますように！</h2>
+    <p>
+      10:00 出発 → キーラーゴ → イスラモラーダ（ランチ）→ セブンマイルブリッジ → バヒア・ホンダ（折り返し）<br>
+      → イスラモラーダ（夕食）→ 9:30 マイアミ帰着<br><br>
+      キーウェストには行かなくても、セブンマイルブリッジとバヒア・ホンダがあれば一生の思い出になる。
+    </p>
   </div>
 
-  <div class="footer">フロリダキーズ ドライブしおり 2026 ｜ 男4人旅</div>
+</div>
+
+<footer>フロリダキーズ ドライブしおり 完全版 2026 ｜ 男4人旅</footer>
 
 </body>
 </html>
